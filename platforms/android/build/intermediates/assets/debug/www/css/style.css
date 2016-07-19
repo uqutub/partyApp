@@ -1,0 +1,47 @@
+/* Empty. Add your own CSS if you like */
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:700,300);
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.party-bg{
+	background-image: url('../img/background-login.png');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+
+}
+
+.party img{
+	width: 200px;
+	height: 200px;
+}
+
+.uppercase {
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.sub-heading{
+	font-family: 'Raleway';
+	font-weight: 100;
+	font-size: 14px;
+	
+}
+.sub-heading-bold{
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 14px;
+	
+}
+
+.white {
+	color: #fff;
+}
+
+.center {
+	text-align: center;
+}

@@ -1,0 +1,68 @@
+    <ion-pane class="">
+      <!-- Header -->
+      <div class="bar bar-header bar-royal" ng-click="changeView('settings')">
+        <h2 class="ion-arrow-left-c padding-left white"></h2>
+        <h1 class="title">Customization</h1>
+      </div>
+      <!-- Header -->
+
+
+      <ion-content padding="true">    
+          <!-- Add Photo -->
+          <div class="row" style="padding-top: 50px;">
+            <div class="col text-center">
+            <h1 class="sub-heading-bold" style="font-size:20px;color:#333;">Change Personal <br> Preferences</h1>
+            </div>
+            
+          </div>
+          <!-- Add Photo -->
+
+          <!-- Add Event Details -->
+            <div class="list">
+
+              <label class="item item-input item-select sub-heading-bold">
+                <div class="input-label">
+                  Background Color
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+               <label class="item item-input item-select small-heading-bold">
+                <div class="input-label">
+                  Font Color
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+               <label class="item item-input item-select sub-heading-bold">
+                <div class="input-label">
+                  Font Size
+                </div>
+                <select>
+                  <option>Large</option>
+                  <option selected>Medium</option>
+                  <option>Small</option>
+                </select>
+              </label>
+
+            </div>
+          <!-- Add Event Details -->
+
+
+      </ion-content>
+
+      <!-- Footer -->
+      <div class="bar bar-footer bar-royal">
+        <div class="col text-center">
+          <button class="button button-royal sub-heading-bold" style="font-size:14px;font-weight:bold;" ng-click="changeView('timeline')">DONE</button>
+        </div>
+      </div>
+      <!-- Footer -->
+
+    </ion-pane>

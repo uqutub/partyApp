@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxhdpi-v4\\screen.png",
+        "source": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\res\\drawable-land-xxhdpi\\screen.png"
+    }
+]
