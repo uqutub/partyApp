@@ -13,7 +13,7 @@ app.controller('LoginController', function ($scope, $state, $firebaseRef) {
 			if (error) {
 				console.log("Login Failed!", error);
 			} else {
-				
+				$state.go('timeline');
 				console.log("Authenticated successfully with payload:", authData);
 			}
 		});
@@ -28,6 +28,7 @@ app.controller('LoginController', function ($scope, $state, $firebaseRef) {
 			if (error) {
 				console.log("Login Failed!", error);
 			} else {
+				$state.go('timeline');
 				console.log("Authenticated successfully with payload:", authData);
 			}
 		});
