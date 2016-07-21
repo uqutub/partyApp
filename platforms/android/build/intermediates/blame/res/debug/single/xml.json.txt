@@ -1,6 +1,0 @@
-[
-    {
-        "merged": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
-        "source": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\res\\xml\\config.xml"
-    }
-]

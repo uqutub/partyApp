@@ -1,62 +1,92 @@
-app.controller('LoginController',function($scope,$state){
+app.controller('LoginController', function ($scope, $state, $firebaseRef) {
 
-	$scope.changeView = function(view){
+	// var auth = $firebaseAuth();
+
+	$scope.changeView = function (view) {
 		$state.go(view);
 	}
-	
-});
+	var ref = $firebaseRef.default;
+	// login with Facebook
+	$scope.loginWithFb = function () {
 
-app.controller('TimelineController',function(){
-	
-});
-
-app.controller('CreateEventController',function($scope,$state){
-	
-	$scope.changeView = function(view){
-		$state.go(view);
+		ref.authWithOAuthPopup("facebook", function (error, authData) {
+			if (error) {
+				console.log("Login Failed!", error);
+			} else {
+				
+				console.log("Authenticated successfully with payload:", authData);
+			}
+		});
 	}
 
-});
 
-app.controller('EventDetailsController',function(){
-	
-});
 
-app.controller('SettingsController',function($scope,$state){
-	
-	$scope.changeView = function(view){
-		$state.go(view);
-	}
-	
-});
 
-app.controller('MyEventsController',function($scope,$state){
-	
-	$scope.changeView = function(view){
-		$state.go(view);
+	// login with Twitter
+	$scope.loginWithTwitter = function () {
+		ref.authWithOAuthPopup("twitter", function (error, authData) {
+			if (error) {
+				console.log("Login Failed!", error);
+			} else {
+				console.log("Authenticated successfully with payload:", authData);
+			}
+		});
 	}
 
-});
+})
 
-app.controller('FollowingController',function($scope,$state){
-	
-	$scope.changeView = function(view){
-		$state.go(view);
-	}
+
+app.controller('TimelineController', function () {
 
 });
 
-app.controller('CustomizationController',function($scope,$state){
-	
-	$scope.changeView = function(view){
+app.controller('CreateEventController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
 		$state.go(view);
 	}
 
 });
 
-app.controller('SubscriptionController',function($scope,$state){
-	
-	$scope.changeView = function(view){
+app.controller('EventDetailsController', function () {
+
+});
+
+app.controller('SettingsController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
+		$state.go(view);
+	}
+
+});
+
+app.controller('MyEventsController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
+		$state.go(view);
+	}
+
+});
+
+app.controller('FollowingController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
+		$state.go(view);
+	}
+
+});
+
+app.controller('CustomizationController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
+		$state.go(view);
+	}
+
+});
+
+app.controller('SubscriptionController', function ($scope, $state) {
+
+	$scope.changeView = function (view) {
 		$state.go(view);
 	}
 

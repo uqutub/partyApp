@@ -25,6 +25,18 @@ body {
 	font-size: 18px;
 	text-transform: uppercase;
 }
+.small-heading{
+	font-family: 'Raleway';
+	font-weight: 300;
+	font-size: 12px;
+	
+}
+.small-heading-bold{
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 12px;
+	
+}
 .sub-heading{
 	font-family: 'Raleway';
 	font-weight: 100;
@@ -44,4 +56,48 @@ body {
 
 .center {
 	text-align: center;
+}
+
+.photo-circle {
+	font-size: 100px;
+	color: #959595;
+}
+
+.event-row {
+	background-color: #e6e0e1;	
+	color: #373737;
+	font-size: 18px;
+}
+
+.icon-circle, .icon-circle-large, .icon-circle-small{
+  position: relative;
+  display: inline-block;
+  margin: -1px;
+  /*padding: 16px;*/
+  
+  
+  width: 45px; /* 60*/
+	height: 45px; 
+  font-size:40px; 
+  
+   -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+	border-radius: 50%;
+  
+	
+  
+  border: 1px solid #ebebeb;
+ 
+  background: #959595; /*#ececec;ebebeb*/
+  
+  
+  text-align:center;
+  /*vertical-align: middle;*/
+}
+
+.icon-circle-large {
+  width: 70px;
+  height: 70px;
+  font-size: 44px; /* 64, originally 60 */
+  padding: 12px;
 }

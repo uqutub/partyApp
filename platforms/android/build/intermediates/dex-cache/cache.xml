@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Tashfeen\Documents\ionic\PartyApp\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\jars\classes.jar"
+        jar="E:\partyApp\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\jars\classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="7bf8d520c0961b14cc0857ce8732c630947afca9">
-        <dex dex="C:\Users\Tashfeen\Documents\ionic\PartyApp\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-unspecified-debug_8170fc5dcd4bd54d8ae1fc27321ae10c60c8370c.jar" />
+        sha1="0ae77bea5fffd1a5d4bf3eac8b38948aa72bd05d">
+        <dex dex="E:\partyApp\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-unspecified-debug_6c476290dd3d7a15cdbe65272d8d1cb37041028a.jar" />
     </item>
 
 </items>

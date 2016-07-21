@@ -1,6 +1,0 @@
-[
-    {
-        "merged": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\icon.png",
-        "source": "C:\\Users\\Tashfeen\\Documents\\ionic\\PartyApp\\platforms\\android\\res\\drawable-xxxhdpi\\icon.png"
-    }
-]
