@@ -41,10 +41,32 @@ app.controller('TimelineController', function () {
 
 });
 
-app.controller('CreateEventController', function ($scope, $state) {
+app.controller('CreateEventController', function ($scope, $state, $firebaseRef, Auth, $firebaseArray) {
 
-	$scope.changeView = function (view) {
-		$state.go(view);
+	// $scope.changeView = function (view) {
+	// 	$state.go(view);
+	// }
+	$scope.event = {}
+
+	$scope.createEvent = function () {
+		console.log('party', $scope.event);
+
+		var authObj = Auth;
+
+		var auth = authObj.$getAuth();
+		// console.log("auth auth", auth)
+
+
+		// $scope.auth.$onAuth(function (authData) {
+		// 	// $scope.authData = authData;
+		// 	console.log('authData', authData)
+		// });
+
+		$scope.event.partyTime = $scope.event.partyTime.valueOf();
+		var ref = $firebaseRef.default.child(auth.uid);
+
+		$firebaseArray(ref).$add($scope.event);
+
 	}
 
 });

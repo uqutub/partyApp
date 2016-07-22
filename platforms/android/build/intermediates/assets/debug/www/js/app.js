@@ -27,7 +27,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $firebaseRefProvider, f
     .state('timeline', {
       url: '/timeline',
       templateUrl: 'templates/timeline.html',
-      controller: 'TimelineController'
+      controller: 'TimelineController',
+      resolve: {
+        'user': function (authService) {
+          return authService.checkAuth()
+        }
+      }
     })
     .state('createEvent', {
       url: '/createEvent',
@@ -63,9 +68,9 @@ app.config(function ($stateProvider, $urlRouterProvider, $firebaseRefProvider, f
       url: '/subscription',
       templateUrl: 'templates/subscription.html',
       controller: 'SubscriptionController'
-    });
+    })
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/timeline');
 
   $firebaseRefProvider.registerUrl({
     default: firebaseRef

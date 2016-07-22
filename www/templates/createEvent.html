@@ -1,57 +1,57 @@
-    <ion-pane class="">
-      <!-- Header -->
-      <div class="bar bar-header bar-royal" ng-click="changeView('timeline')">
-        <h2 class="ion-arrow-left-c padding-left white"></h2>
-        <h1 class="title">Create Event</h1>
+<ion-pane class="">
+  <!-- Header -->
+  <div class="bar bar-header bar-royal" ng-click="changeView('timeline')">
+    <h2 class="ion-arrow-left-c padding-left white"></h2>
+    <h1 class="title">Create Event</h1>
+  </div>
+  <!-- Header -->
+
+
+  <ion-content padding="true">
+    <!-- Add Photo -->
+    <div class="row" style="padding-top: 50px;">
+      <div class="col text-center">
+
+        <a class="icon-circle-large icon-circle-outline">
+          <i class="ion-camera dark"></i>
+        </a>
+        <p class="sub-heading">Add Event Photo</p>
       </div>
-      <!-- Header -->
 
+    </div>
+    <!-- Add Photo -->
 
-      <ion-content padding="true">    
-          <!-- Add Photo -->
-          <div class="row" style="padding-top: 50px;">
-            <div class="col text-center">
-
-               <a class="icon-circle-large icon-circle-outline">
-                <i class="ion-camera dark"></i>
-                </a>
-                <p class="sub-heading">Add Event Photo</p>
-            </div>
-            
-          </div>
-          <!-- Add Photo -->
-
-          <!-- Add Event Details -->
-          <div class="row event-row text-center">
-            <div class="col col-offset-10 ">
-              <div class="list">
-                <label class="item item-input" style="background:#e6e0e1;">
+    <!-- Add Event Details -->
+    <div class="row event-row text-center">
+      <div class="col col-offset-10 ">
+        <div class="list">
+          <label class="item item-input" style="background:#e6e0e1;">
                 <i class="ion-person"></i>&nbsp;&nbsp;
-                  <input type="text" placeholder="Party Name.." class=" small-heading">
+                  <input type="text" ng-model="event.partyName" placeholder="Party Name.." class=" small-heading">
                 </label>
-                <label class="item item-input" style="background:#e6e0e1;">
+          <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-calendar"></i>&nbsp;&nbsp;
-                  <input type="datetime-local" placeholder="8-12-16     12:00 PM" class="small-heading">
+                  <input type="datetime-local" ng-model="event.partyTime" placeholder="8-12-16     12:00 PM" class="small-heading">
                 </label>
-                <label class="item item-input" style="background:#e6e0e1;">
+          <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-document-text"></i>&nbsp;&nbsp;
-                  <textarea type="text" placeholder="Details of party.." class=" small-heading" style="background:#e6e0e1;"></textarea> 
+                  <textarea type="text" ng-model="event.details" placeholder="Details of party.." class=" small-heading" style="background:#e6e0e1;"></textarea> 
                 </label>
-                <ion-list>
-              </div>
-            </div>
-          </div>
-          <!-- Add Event Details -->
-
-
-      </ion-content>
-
-      <!-- Footer -->
-      <div class="bar bar-footer bar-royal">
-        <div class="col text-center">
-          <button class="button button-royal sub-heading-bold" style="font-size:14px;font-weight:bold;" ng-click="changeView('timeline')">DONE</button>
+          <ion-list>
         </div>
       </div>
-      <!-- Footer -->
+    </div>
+    <!-- Add Event Details -->
 
-    </ion-pane>
+
+  </ion-content>
+
+  <!-- Footer -->
+  <div class="bar bar-footer bar-royal">
+    <div class="col text-center">
+      <button class="button button-royal sub-heading-bold" style="font-size:14px;font-weight:bold;" ng-click="createEvent()">DONE</button>
+    </div>
+  </div>
+  <!-- Footer -->
+
+</ion-pane>

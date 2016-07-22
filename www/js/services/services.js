@@ -1,6 +1,12 @@
 angular
     .module('party')
 
+    .factory("Auth", ["$firebaseAuth", "$firebaseRef",
+        function ($firebaseAuth, $firebaseRef) {
+            return $firebaseAuth($firebaseRef.default);
+        }
+    ])
+
     .service('authService', function ($firebaseAuthService, $state) {
 
         this.checkAuth = function () {
