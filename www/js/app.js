@@ -1,5 +1,5 @@
 
-var app = angular.module('party', ['ionic', 'firebase']);
+var app = angular.module('party', ['ionic', 'firebase', 'ngCordova', 'ion-datetime-picker']);
 
 app.run(function ($ionicPlatform, $timeout, $state) {
   $ionicPlatform.ready(function () {

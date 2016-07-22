@@ -9,7 +9,7 @@
 
   <ion-content padding="true">
     <!-- Add Photo -->
-    <div class="row" style="padding-top: 50px;">
+    <div class="row" style="padding-top: 50px;" ng-click="captureImage()" ng-if="!event.eventImage">
       <div class="col text-center">
 
         <a class="icon-circle-large icon-circle-outline">
@@ -18,6 +18,10 @@
         <p class="sub-heading">Add Event Photo</p>
       </div>
 
+    </div>
+
+    <div class="row" ng-if="event.eventImage" style="padding-top: 50px;">
+      <img src="{{event.eventImage}}" alt="event picture" style="margin:0 auto;padding-bottom:10px;">
     </div>
     <!-- Add Photo -->
 
@@ -31,7 +35,7 @@
                 </label>
           <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-calendar"></i>&nbsp;&nbsp;
-                  <input type="datetime-local" ng-model="event.partyTime" placeholder="8-12-16     12:00 PM" class="small-heading">
+                  <input type="text" ion-datetime-picker am-pm value="{{event.partyTime}}" ng-model="event.partyTime" placeholder="8-12-16 12:00 PM" class="small-heading">
                 </label>
           <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-document-text"></i>&nbsp;&nbsp;
@@ -41,6 +45,8 @@
         </div>
       </div>
     </div>
+
+    {{event.partyTime}}
     <!-- Add Event Details -->
 
 

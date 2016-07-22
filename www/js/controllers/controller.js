@@ -41,19 +41,54 @@ app.controller('TimelineController', function () {
 
 });
 
-app.controller('CreateEventController', function ($scope, $state, $firebaseRef, Auth, $firebaseArray) {
+app.controller('CreateEventController', function ($scope, $state, $firebaseRef, Auth, $firebaseArray, $cordovaCamera) {
 
 	// $scope.changeView = function (view) {
 	// 	$state.go(view);
 	// }
-	$scope.event = {}
+
+	document.addEventListener("deviceready", function () {
+
+		var options = {
+			quality: 50,
+			destinationType: Camera.DestinationType.DATA_URL,
+			sourceType: Camera.PictureSourceType.CAMERA,
+			allowEdit: false,
+			encodingType: Camera.EncodingType.JPEG,
+			targetWidth: 100,
+			targetHeight: 100,
+			popoverOptions: CameraPopoverOptions,
+			saveToPhotoAlbum: false,
+			correctOrientation: true
+		};
+
+		$scope.captureImage = function () {
+			console.log("capture image running")
+
+			$cordovaCamera.getPicture(options)
+				.then(function (imageData) {
+
+					$scope.event.eventImage = "data:image/jpeg;base64," + imageData;
+
+					console.log("image just captured", $scope.event.eventImage)
+				}, function (err) {
+					// error
+				});
+		}
+	}, false);
+
+
+	$scope.event = {
+
+	}
 
 	$scope.createEvent = function () {
 		console.log('party', $scope.event);
-
+		$scope.event.partyTime = $scope.event.partyTime.valueOf();
 		var authObj = Auth;
 
-		var auth = authObj.$getAuth();
+		var auth = authObj.$getAuth()
+
 		// console.log("auth auth", auth)
 
 
@@ -62,10 +97,13 @@ app.controller('CreateEventController', function ($scope, $state, $firebaseRef, 
 		// 	console.log('authData', authData)
 		// });
 
-		$scope.event.partyTime = $scope.event.partyTime.valueOf();
+
 		var ref = $firebaseRef.default.child(auth.uid);
 
-		$firebaseArray(ref).$add($scope.event);
+		$firebaseArray(ref).$add($scope.event)
+			.then(function () {
+				// $scope.event = null;
+			})
 
 	}
 
