@@ -37,15 +37,20 @@ app.controller('LoginController', function ($scope, $state, $firebaseRef) {
 })
 
 
-app.controller('TimelineController', function () {
+app.controller('TimelineController', function ($scope, $firebaseRef, $firebaseArray) {
+	var ref = $firebaseRef.events;
+
+	$scope.allEvents = $firebaseArray(ref);
+
+	$scope.allEvents.$loaded(function (abc) {
+		console.log("all events", abc)
+	})
 
 });
 
-app.controller('CreateEventController', function ($scope, $state, $firebaseRef, Auth, $firebaseArray, $cordovaCamera) {
+app.controller('CreateEventController', function ($scope, $state, $firebaseRef, Auth, $firebaseArray, $cordovaCamera, $cordovaGeolocation, $http) {
 
-	// $scope.changeView = function (view) {
-	// 	$state.go(view);
-	// }
+
 
 	document.addEventListener("deviceready", function () {
 
@@ -78,30 +83,61 @@ app.controller('CreateEventController', function ($scope, $state, $firebaseRef, 
 	}, false);
 
 
-	$scope.event = {}
-
+	$scope.event = {
+		postedOn: Firebase.ServerValue.TIMESTAMP
+	}
 	$scope.createEvent = function () {
-		console.log('party', $scope.event);
-		$scope.event.partyTime = $scope.event.partyTime.valueOf();
-		var authObj = Auth;
+		// Grab user current Location if Location service is enabled by user in android otherwise error callback will be called;
+		var posOptions = { timeout: 10000, enableHighAccuracy: false };
 
-		var auth = authObj.$getAuth()
+		$cordovaGeolocation
+			.getCurrentPosition(posOptions)
+			.then(function (position) {
+				console.info("first promise called in create event function");
 
-		// console.log("auth auth", auth)
+				var lat = position.coords.latitude;
+				var long = position.coords.longitude;
+				console.log("user's location", position.coords);
+
+				// create a new party event and save it in firebase
+				console.log('party', $scope.event);
+
+				// $scope.event.userLocation = { latitude: lat, longitude: long }
+
+				$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long)
+					.then(function (response) {
+
+						console.log("users parsed location is ", response.data.results[3]);
+						$scope.event.userLocation = response.data.results[3].formatted_address;
+					});
 
 
-		// $scope.auth.$onAuth(function (authData) {
-		// 	// $scope.authData = authData;
-		// 	console.log('authData', authData)
-		// });
-
-
-		var ref = $firebaseRef.default.child(auth.uid);
-
-		$firebaseArray(ref).$add($scope.event)
-			.then(function () {
-				// $scope.event = null;
 			})
+			.then(function () {
+				console.info("second promise called in create event function");
+
+				$scope.event.partyTime = $scope.event.partyTime.valueOf();
+				var authObj = Auth;
+				var auth = authObj.$getAuth()
+
+				var ref = $firebaseRef.events.child(auth.uid);
+
+				$firebaseArray(ref).$add($scope.event)
+					.then(function () {
+						// $scope.event = null;
+					})
+
+
+			})
+			.catch(function (err) {
+				console.log("an error accured ", err)
+			})
+
+
+
+
+
+
 
 	}
 

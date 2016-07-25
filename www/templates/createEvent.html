@@ -35,7 +35,7 @@
                 </label>
           <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-calendar"></i>&nbsp;&nbsp;
-                  <input type="text" ion-datetime-picker am-pm value="{{event.partyTime}}" ng-model="event.partyTime" placeholder="8-12-16 12:00 PM" class="small-heading">
+                  <input ion-datetime-picker am-pm value="{{event.partyTime}}" onfocus="cordova.plugins.Keyboard.close();" ng-model="event.partyTime" placeholder="8-12-16 12:00 PM" class="small-heading" style="border:none;">
                 </label>
           <label class="item item-input" style="background:#e6e0e1;">
                   <i class="ion-document-text"></i>&nbsp;&nbsp;

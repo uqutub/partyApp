@@ -1,5 +1,5 @@
 
-var app = angular.module('party', ['ionic', 'firebase', 'ngCordova', 'ion-datetime-picker']);
+var app = angular.module('party', ['ionic', 'firebase', 'ngCordova', 'ion-datetime-picker', 'angularMoment']);
 
 app.run(function ($ionicPlatform, $timeout, $state) {
   $ionicPlatform.ready(function () {
@@ -73,7 +73,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $firebaseRefProvider, f
   $urlRouterProvider.otherwise('/timeline');
 
   $firebaseRefProvider.registerUrl({
-    default: firebaseRef
+    default: firebaseRef,
+    events: firebaseRef + '/allEvents'
   })
 
 });
