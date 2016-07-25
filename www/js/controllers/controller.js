@@ -78,9 +78,7 @@ app.controller('CreateEventController', function ($scope, $state, $firebaseRef, 
 	}, false);
 
 
-	$scope.event = {
-
-	}
+	$scope.event = {}
 
 	$scope.createEvent = function () {
 		console.log('party', $scope.event);
